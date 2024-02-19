@@ -52,7 +52,7 @@ public class Student {
     @Override
     public String toString() {
         StringBuilder studentOpt = new StringBuilder();
-        studentOpt.append("Student Number: ").append(studentNumber)
+        studentOpt.append("\nStudent Number: ").append(studentNumber)
                   .append("\nName: ").append(name)
                   .append("\nProgram: ").append(program)
                   .append("\nTotal Units: ").append(totalUnits)
