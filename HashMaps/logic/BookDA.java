@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 public class BookDA {
-    protected final static String filePath = "./data/Book.csv";
+    private final static String filePath = "./data/Book.csv";
 
     public static HashMap<String, Book> booksFileReader() {
         HashMap<String, Book> books = new HashMap<>();
