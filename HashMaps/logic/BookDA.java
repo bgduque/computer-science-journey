@@ -59,12 +59,13 @@ public class BookDA {
                 sb.append(author.getAuthorName());
                 sb.append(" - ");
                 sb.append(author.getBioString());
+                sb.append("\n");
             }
         }
         sb.append("\n\n");
         sb.append("*==============================*\n");
         sb.append("This was coded by: Boris Gamaliel D. Duque\n");
-        sb.append("To know more, you may visit: https://github.com/bgduque/computer-science-journey/tree/main/HashMaps\n");
+        sb.append("To know more, you may visit: https://github.com/bgduque\n");
         sb.append("*==============================*");
         return sb.toString();
     }
