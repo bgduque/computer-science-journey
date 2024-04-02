@@ -44,7 +44,7 @@ public class BookDA {
         /*
          * TreeMap is used to sort the books by their ISBN
          * I did this to ensure that the books are sorted by their ISBN.
-         * 
+         * I did this by passing in String as the Key and Book being the value() contents of the Book class.
          */
         TreeMap<String, Book> sortedBooks = new TreeMap<>(books); 
 
