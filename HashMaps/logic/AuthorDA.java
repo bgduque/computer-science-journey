@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class AuthorDA {
-    protected final static String filePath = "./data/Author.csv";
+    private final static String filePath = "./data/Author.csv";
 
     public static HashMap<String, Author> authorsFileReader() {
         HashMap<String, Author> authors = new HashMap<>();
