@@ -8,20 +8,16 @@
 */
 package logic;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.util.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class DepartmentDA {
     private final static String[] departmentInfoFilePath = { "./data/dep.csv", "./data/deptemp.csv" };
     
     private EmployeeDA eDA = new EmployeeDA();
+
     private HashMap<String, Employee> employeeMap = eDA.employeeReader();
     private HashMap<String, Department> departmentMap = new HashMap<>();
     private HashMap<String, List<Employee>> depEmpMap = new HashMap<>();
@@ -116,7 +112,6 @@ public class DepartmentDA {
     public String toString() { 
         StringBuilder sb = new StringBuilder();
         DecimalFormat dF = new DecimalFormat("#,###.00");
-
         for(Department d : depMap.values()) {
             sb.append("\n");
             String departmentInfortation = String.format(
