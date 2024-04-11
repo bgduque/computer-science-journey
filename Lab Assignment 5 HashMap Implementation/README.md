@@ -59,6 +59,7 @@ E371, Hernandez, Timothy, Junior Accountant
 E372, Cruz, Ricardo, CPA
 <br><br>
 You need to create objects that will handle the retrieval of the csv files to convert it into objects.  These are EmployeeDA and EmployeeDA objects.  This will be the execution of the sequence:
+  <br>
   <img src="https://github.com/bgduque/computer-science-journey/blob/main/Lab%20Assignment%205%20HashMap%20Implementation/resource/Sequence%20Diagram.png">
 </p>
 
