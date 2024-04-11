@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 public class DepartmentDA {
     private final static String[] departmentInfoFilePath = { "./data/dep.csv", "./data/deptemp.csv" };
@@ -26,6 +26,7 @@ public class DepartmentDA {
     private HashMap<String, Department> departmentMap = new HashMap<>();
     private HashMap<String, List<Employee>> depEmpMap = new HashMap<>();
 
+    private HashMap<String, Double> uniqueEmployeeSalaries = new HashMap<>();
     private HashMap<String, Department> depMap = readDepEmp();
 
     public HashMap<String, Department> readDepEmp() {
@@ -60,20 +61,29 @@ public class DepartmentDA {
                 depEmpMap.put(d.getDepCode(), empsInDept);
             }
 
-            for (Map.Entry<String, List<Employee>> entry : depEmpMap.entrySet()) {
+            for (HashMap.Entry<String, List<Employee>> entry : depEmpMap.entrySet()) {
                 String depCode = entry.getKey();
                 List<Employee> employees = entry.getValue();
-    
-                double totalSalary = 0.0;
                 for (Employee e : employees) {
-                    totalSalary += e.getSalary();
+                    String uniqueKey = depCode + "-" + e.getempNo();
+            
+                    uniqueEmployeeSalaries.putIfAbsent(uniqueKey, e.getSalary());
                 }
-    
-                Department d = departmentMap.get(depCode);
-                d = departmentMap.get(depCode);
-                d.setDepTotalSalary(totalSalary);
             }
             
+            for (HashMap.Entry<String, Department> entry : departmentMap.entrySet()) {
+                String depCode = entry.getKey();
+                Department d = entry.getValue();
+            
+                double totalSalary = 0.0;
+                for (HashMap.Entry<String, Double> salaryEntry : uniqueEmployeeSalaries.entrySet()) {
+                    if (salaryEntry.getKey().startsWith(depCode + "-")) {
+                        totalSalary += salaryEntry.getValue();
+                    }
+                }
+            
+                d.setDepTotalSalary(totalSalary);
+            }
             yR.readLine();
             String y;
             while ((y = yR.readLine()) != null) {
